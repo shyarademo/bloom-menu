@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSiteData } from "@/contexts/SiteDataContext";
 import { useMagneticEffect } from "@/hooks/useMagneticEffect";
+import { ChevronDown } from "lucide-react";
 
 function MagneticButton({
   label,
@@ -22,9 +23,9 @@ function MagneticButton({
       onMouseLeave={handleMouseLeave}
       animate={{ x: offset.x, y: offset.y }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`inline-block px-8 py-4 rounded-full font-medium text-base transition-colors ${
+      className={`inline-block px-10 py-4 rounded-full font-medium text-base transition-colors ${
         isPrimary
-          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+          ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
           : "border-2 border-primary text-primary hover:bg-primary/10"
       }`}
     >
@@ -81,9 +82,25 @@ export function HeroSection() {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/60" />
+          {/* Gradient overlay: dark left for text, transparent right for imagery */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/20" />
         </motion.div>
       </AnimatePresence>
+
+      {/* Decorative botanical SVG */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.12 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute right-12 top-1/4 hidden lg:block"
+      >
+        <svg width="200" height="300" viewBox="0 0 200 300" fill="none" className="text-primary">
+          <path d="M100 280 C100 280 30 200 40 120 C50 40 100 20 100 20 C100 20 150 40 160 120 C170 200 100 280 100 280Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          <path d="M100 280 L100 20" stroke="currentColor" strokeWidth="1" />
+          <path d="M100 180 C70 160 50 130 60 100" stroke="currentColor" strokeWidth="1" fill="none" />
+          <path d="M100 140 C130 120 150 90 140 60" stroke="currentColor" strokeWidth="1" fill="none" />
+        </svg>
+      </motion.div>
 
       <div className="relative z-10 container mx-auto px-6 py-32 md:py-40">
         <div className="max-w-3xl">
@@ -108,6 +125,22 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 0.6 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+      >
+        <span className="text-xs font-medium text-muted-foreground tracking-widest uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-5 h-5 text-muted-foreground" />
+        </motion.div>
+      </motion.div>
 
       {/* Organic bottom edge */}
       <div className="absolute bottom-0 left-0 right-0 z-10">

@@ -190,7 +190,7 @@
     "tiktok": "https://tiktok.com/@verdanatable"
   },
   "specialOffer": {
-    "visible": true,
+    "visible": false,
     "text": "🌸 Spring Tasting Menu — 5 courses for £55 per person. Available through March.",
     "link": "#contact",
     "linkText": "Reserve Now"
