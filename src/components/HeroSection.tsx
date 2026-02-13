@@ -26,7 +26,7 @@ function MagneticButton({
       className={`inline-block px-10 py-4 rounded-full font-medium text-base transition-colors ${
         isPrimary
           ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
-          : "border-2 border-primary text-primary hover:bg-primary/10"
+          : "border-2 border-white text-white hover:bg-white/20"
       }`}
     >
       {label}
@@ -37,7 +37,7 @@ function MagneticButton({
 function WordReveal({ text }: { text: string }) {
   const words = text.split(" ");
   return (
-    <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.1]">
+    <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1]">
       {words.map((word, i) => (
         <motion.span
           key={i}
@@ -83,7 +83,7 @@ export function HeroSection() {
             className="w-full h-full object-cover"
           />
           {/* Gradient overlay: dark left for text, transparent right for imagery */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
         </motion.div>
       </AnimatePresence>
 
@@ -109,7 +109,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-white/80 max-w-xl leading-relaxed"
           >
             {hero.subtext}
           </motion.p>
@@ -133,12 +133,12 @@ export function HeroSection() {
         transition={{ delay: 2, duration: 0.6 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-xs font-medium text-muted-foreground tracking-widest uppercase">Scroll</span>
+        <span className="text-xs font-medium text-white/70 tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-5 h-5 text-muted-foreground" />
+          <ChevronDown className="w-5 h-5 text-white/70" />
         </motion.div>
       </motion.div>
 

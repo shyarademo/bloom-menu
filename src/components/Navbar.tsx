@@ -61,7 +61,7 @@ export function Navbar() {
         <nav className="container mx-auto flex items-center justify-between px-6 py-4">
           <a href="#hero" className="flex items-center gap-2">
             <span className="text-2xl">{branding.logo}</span>
-            <span className="font-display text-xl font-semibold text-foreground">
+            <span className={`font-display text-xl font-semibold transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
               {branding.name}
             </span>
           </a>
@@ -77,8 +77,8 @@ export function Navbar() {
                   href={item.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors ${
                     isActive
-                      ? "text-primary bg-primary/10"
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                      ? scrolled ? "text-primary bg-primary/10" : "text-white bg-white/15"
+                      : scrolled ? "text-foreground/70 hover:text-foreground hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {item.label}
@@ -103,7 +103,7 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className={`md:hidden p-2 transition-colors ${scrolled ? "text-foreground" : "text-white"}`}
             onClick={() => setMobileOpen(true)}
           >
             <Menu className="w-6 h-6" />
