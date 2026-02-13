@@ -1,0 +1,201 @@
+{
+  "branding": {
+    "name": "Verdana Table",
+    "tagline": "Where nature meets flavor",
+    "logo": "🌿",
+    "palette": {
+      "primary": "145 35% 42%",
+      "primaryForeground": "45 30% 97%",
+      "accent": "24 80% 72%",
+      "accentForeground": "24 60% 20%",
+      "secondary": "145 20% 90%",
+      "secondaryForeground": "145 35% 25%",
+      "background": "40 30% 96%",
+      "foreground": "150 15% 15%",
+      "card": "40 25% 98%",
+      "cardForeground": "150 15% 15%",
+      "muted": "40 15% 92%",
+      "mutedForeground": "150 8% 45%",
+      "border": "40 15% 88%",
+      "input": "40 15% 88%",
+      "ring": "145 35% 42%",
+      "destructive": "0 72% 51%",
+      "destructiveForeground": "0 0% 98%",
+      "popover": "40 25% 98%",
+      "popoverForeground": "150 15% 15%"
+    }
+  },
+  "navigation": [
+    { "label": "Home", "href": "#hero" },
+    { "label": "About", "href": "#about" },
+    { "label": "Menu", "href": "#featured-menu" },
+    { "label": "Gallery", "href": "#gallery" },
+    { "label": "Reviews", "href": "#testimonials" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "seo": {
+    "title": "Verdana Table — Where Nature Meets Flavor",
+    "description": "A botanical dining experience celebrating seasonal ingredients, organic wines, and the art of slow food in a lush garden setting.",
+    "keywords": "restaurant, botanical, organic, seasonal, garden dining, fine dining",
+    "ogImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop"
+  },
+  "hero": {
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop",
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920&h=1080&fit=crop",
+      "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1920&h=1080&fit=crop"
+    ],
+    "headline": "A garden on your plate",
+    "subtext": "Seasonal ingredients, curated with love, served in a lush botanical setting that awakens every sense.",
+    "ctaButtons": [
+      { "label": "Reserve a Table", "href": "#contact", "variant": "primary" },
+      { "label": "View Menu", "href": "/menu", "variant": "secondary" }
+    ]
+  },
+  "about": {
+    "visible": true,
+    "headline": "Rooted in tradition, grown with passion",
+    "body": "Verdana Table was born from a simple belief: the best meals start in the soil. Our chef partners with local farms to bring you dishes that celebrate the rhythm of the seasons. Every plate tells a story of sun, rain, and patient hands.",
+    "image": "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&h=600&fit=crop",
+    "stats": [
+      { "value": 12, "suffix": "+", "label": "Years of service" },
+      { "value": 40, "suffix": "+", "label": "Local farm partners" },
+      { "value": 98, "suffix": "%", "label": "Seasonal ingredients" }
+    ]
+  },
+  "featuredMenu": {
+    "visible": true,
+    "headline": "Garden favorites",
+    "subtext": "A taste of what awaits you",
+    "items": [
+      {
+        "name": "Heritage Tomato Tartare",
+        "description": "Heirloom tomatoes with basil oil, burrata, and aged balsamic on sourdough crisp",
+        "price": "$18",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=500&fit=crop",
+        "tags": ["vegetarian", "seasonal"]
+      },
+      {
+        "name": "Wild Mushroom Risotto",
+        "description": "Arborio rice with foraged chanterelles, truffle cream, and parmesan shavings",
+        "price": "$26",
+        "image": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=500&h=500&fit=crop",
+        "tags": ["vegetarian", "gluten-free"]
+      },
+      {
+        "name": "Pan-Seared Salmon",
+        "description": "Scottish salmon with herb crust, roasted fennel, citrus beurre blanc",
+        "price": "$32",
+        "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&h=500&fit=crop",
+        "tags": ["pescatarian", "gluten-free"]
+      },
+      {
+        "name": "Garden Harvest Bowl",
+        "description": "Quinoa, roasted root vegetables, tahini dressing, microgreens, toasted seeds",
+        "price": "$22",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=500&fit=crop",
+        "tags": ["vegan", "gluten-free"]
+      }
+    ]
+  },
+  "menu": {
+    "seo": {
+      "title": "Menu — Verdana Table",
+      "description": "Explore our seasonal menu featuring locally sourced ingredients and botanical-inspired dishes."
+    },
+    "gridColumns": 3,
+    "filterTags": ["vegetarian", "vegan", "gluten-free", "pescatarian", "seasonal"],
+    "categories": [
+      {
+        "name": "Starters",
+        "description": "Light beginnings from the garden",
+        "items": [
+          { "name": "Heritage Tomato Tartare", "description": "Heirloom tomatoes, basil oil, burrata, aged balsamic, sourdough crisp", "price": "$18", "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=500&fit=crop", "tags": ["vegetarian", "seasonal"] },
+          { "name": "Beetroot Carpaccio", "description": "Thinly sliced golden beets, goat cheese mousse, candied walnuts, micro herbs", "price": "$16", "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=500&fit=crop", "tags": ["vegetarian", "gluten-free"] },
+          { "name": "Ceviche Garden", "description": "Day-boat catch with citrus, avocado, edible flowers, crispy taro", "price": "$20", "image": "https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=500&h=500&fit=crop", "tags": ["pescatarian", "gluten-free"] },
+          { "name": "Roasted Cauliflower Soup", "description": "Velvety cauliflower, truffle oil, toasted hazelnuts, chive cream", "price": "$14", "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&h=500&fit=crop", "tags": ["vegan", "gluten-free"] }
+        ]
+      },
+      {
+        "name": "Mains",
+        "description": "Hearty plates, honestly made",
+        "items": [
+          { "name": "Wild Mushroom Risotto", "description": "Arborio rice, foraged chanterelles, truffle cream, parmesan", "price": "$26", "image": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=500&h=500&fit=crop", "tags": ["vegetarian", "gluten-free"] },
+          { "name": "Pan-Seared Salmon", "description": "Scottish salmon, herb crust, roasted fennel, citrus beurre blanc", "price": "$32", "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&h=500&fit=crop", "tags": ["pescatarian", "gluten-free"] },
+          { "name": "Garden Harvest Bowl", "description": "Quinoa, roasted roots, tahini, microgreens, toasted seeds", "price": "$22", "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=500&fit=crop", "tags": ["vegan", "gluten-free"] },
+          { "name": "Herb-Crusted Lamb Rack", "description": "New Zealand lamb, rosemary jus, pomme purée, seasonal greens", "price": "$38", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=500&fit=crop", "tags": ["seasonal"] },
+          { "name": "Truffle Tagliatelle", "description": "Fresh pasta, black truffle, pecorino, brown butter, sage", "price": "$28", "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&h=500&fit=crop", "tags": ["vegetarian"] },
+          { "name": "Duck Confit", "description": "Slow-cooked duck leg, cherry gastrique, roasted parsnips, watercress", "price": "$34", "image": "https://images.unsplash.com/photo-1432139509613-5c4255a9da1f?w=500&h=500&fit=crop", "tags": ["seasonal"] }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "description": "Sweet endings from the garden",
+        "items": [
+          { "name": "Lavender Crème Brûlée", "description": "Provençal lavender custard, caramelized sugar, shortbread", "price": "$14", "image": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=500&h=500&fit=crop", "tags": ["vegetarian"] },
+          { "name": "Dark Chocolate Fondant", "description": "Valrhona chocolate, salted caramel center, vanilla bean ice cream", "price": "$16", "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&h=500&fit=crop", "tags": ["vegetarian"] },
+          { "name": "Seasonal Fruit Pavlova", "description": "Crisp meringue, chantilly cream, market fruits, passion fruit coulis", "price": "$15", "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&h=500&fit=crop", "tags": ["gluten-free", "vegetarian"] }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "description": "Botanical sips & natural wines",
+        "items": [
+          { "name": "Garden Spritz", "description": "Elderflower liqueur, prosecco, cucumber, mint, soda", "price": "$15", "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&h=500&fit=crop", "tags": ["seasonal"] },
+          { "name": "Lavender Lemonade", "description": "House-made lavender syrup, fresh lemon, sparkling water", "price": "$8", "image": "https://images.unsplash.com/photo-1556881286-fc6915169721?w=500&h=500&fit=crop", "tags": ["vegan"] },
+          { "name": "Herbal Infusion Flight", "description": "Three seasonal herbal teas: chamomile, rosehip, lemongrass", "price": "$12", "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&h=500&fit=crop", "tags": ["vegan", "gluten-free"] }
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "visible": true,
+    "headline": "Moments at the table",
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop", "caption": "Evening ambiance" },
+      { "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop", "caption": "Farm-to-table plating" },
+      { "src": "https://images.unsplash.com/photo-1470338745628-171cf53de3a8?w=600&h=400&fit=crop", "caption": "Our botanical garden" },
+      { "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=600&fit=crop", "caption": "Chef's artistry" },
+      { "src": "https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=600&h=400&fit=crop", "caption": "Wine cellar selection" },
+      { "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=800&fit=crop", "caption": "Morning coffee ritual" }
+    ]
+  },
+  "testimonials": {
+    "visible": true,
+    "headline": "Words from our guests",
+    "reviews": [
+      { "name": "Sophia M.", "text": "An absolutely magical evening. The garden setting, the flavors — everything felt like a dream. We'll be back every season.", "rating": 5 },
+      { "name": "James T.", "text": "The wild mushroom risotto alone is worth the visit. The attention to seasonal ingredients is something you rarely find.", "rating": 5 },
+      { "name": "Amara K.", "text": "We celebrated our anniversary here and it was perfect. Intimate, thoughtful, and the pavlova was heavenly.", "rating": 5 },
+      { "name": "Luca R.", "text": "Finally a restaurant that takes plant-based dining seriously. The Garden Harvest Bowl is a masterpiece.", "rating": 4 },
+      { "name": "Elena V.", "text": "The botanical cocktails are inventive and refreshing. The lavender lemonade is summer in a glass.", "rating": 5 }
+    ]
+  },
+  "contact": {
+    "address": "42 Botanica Lane, Greenwich Village, London SE10 8EW",
+    "phone": "+44 20 7946 0958",
+    "whatsapp": "+442079460958",
+    "email": "hello@verdanatable.com",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.5!2d-0.0076!3d51.4769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI4JzM2LjgiTiAwwrAwMCcyNy40Ilc!5e0!3m2!1sen!2suk!4v1234567890",
+    "hours": [
+      { "days": "Monday — Friday", "time": "12:00 PM — 10:00 PM" },
+      { "days": "Saturday", "time": "11:00 AM — 11:00 PM" },
+      { "days": "Sunday", "time": "11:00 AM — 9:00 PM" }
+    ]
+  },
+  "social": {
+    "instagram": "https://instagram.com/verdanatable",
+    "facebook": "https://facebook.com/verdanatable",
+    "twitter": "https://twitter.com/verdanatable",
+    "tiktok": "https://tiktok.com/@verdanatable"
+  },
+  "specialOffer": {
+    "visible": true,
+    "text": "🌸 Spring Tasting Menu — 5 courses for £55 per person. Available through March.",
+    "link": "#contact",
+    "linkText": "Reserve Now"
+  },
+  "layout": {
+    "sectionOrder": ["hero", "about", "featuredMenu", "gallery", "testimonials", "contact"]
+  }
+}
