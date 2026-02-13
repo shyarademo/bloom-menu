@@ -1,113 +1,111 @@
 
 
-# 🌿 Neo-Botanical Restaurant Website
+# Major UI Improvements
 
-A JSON-driven, single-page restaurant website with a dedicated menu page. Every piece of content, color, and layout is controlled by `siteData.json` — no code edits needed.
+## 1. Remove Special Offer Banner
+- Remove `<SpecialOfferBanner />` from `Index.tsx`
+- Set `specialOffer.visible` to `false` in `siteData.json`
 
-**Aesthetic: Neo-Botanical** — Soft sage, warm peach, creamy linen backgrounds, organic blob shapes as section dividers, asymmetric image placements, and playful typography. Light, airy, and unmistakably unique.
+## 2. Hero Section Overhaul
+**Current issue**: The 60% background overlay washes out the images, making the hero feel flat. Text blends into the muted background.
+
+**Improvements**:
+- Replace the uniform overlay with a gradient that's darker on the left (where text sits) and transparent on the right, so the food imagery actually shines
+- Add a subtle animated scroll indicator (chevron or mouse icon) at the bottom to invite scrolling
+- Make CTA buttons larger with more visual weight
+- Add a decorative botanical leaf SVG element floating near the text for the "neo-botanical" identity
+
+## 3. Navbar Refinement
+**Current issue**: The offer text was crammed between the logo and nav links, making it cluttered. With the banner removed, the navbar has room to breathe.
+
+**Improvements**:
+- Add a subtle top border/line accent when scrolled (not just shadow)
+- Increase nav link spacing and add a hover fill effect (pill-shaped background on hover instead of just color change)
+- Make the "Full Menu" button slightly larger with a subtle icon
+
+## 4. About Section Enhancement
+**Current issue**: The tilted image and stats are decent but the layout feels generic.
+
+**Improvements**:
+- Add a decorative quote mark or botanical accent near the headline
+- Give stats a card-like treatment with subtle borders and background instead of plain text
+- Add a subtle parallax-like offset to the decorative blur blob behind the image
+
+## 5. Featured Menu Cards Upgrade
+**Current issue**: Standard card layout with square images -- looks like every other food site.
+
+**Improvements**:
+- Use rounded-3xl cards with a slightly different aspect ratio (3:4 instead of 1:1) for a more editorial feel
+- Add an overlay gradient on the image that reveals the price as a badge on hover
+- Make tags more colorful -- each dietary tag gets a distinct subtle color (green for vegan, blue for gluten-free, etc.)
+- Add a "View Full Menu" CTA with an arrow animation on hover
+
+## 6. Gallery Section Redesign
+**Current issue**: Basic masonry with flat rounded images and hidden captions.
+
+**Improvements**:
+- Add alternating sizes -- make certain images span 2 rows or 2 columns for a more editorial masonry
+- Show captions always (not just on hover) as elegant overlaid text at the bottom
+- Add a lightbox-style zoom on click using framer-motion `layoutId` for a smooth expand animation
+
+## 7. Testimonials Section Polish
+**Current issue**: Too much empty space below the carousel. The section feels bare and hollow.
+
+**Improvements**:
+- Add decorative large quotation marks behind the review text
+- Show 3 reviews at once on desktop (card-based layout) instead of a single carousel
+- On mobile, keep the swipeable single-review carousel
+- Add subtle avatars or initials circles next to names
+- Reduce vertical padding to eliminate the empty space
+
+## 8. Contact Section Elevation
+**Current issue**: Very plain -- just icons and text with a map.
+
+**Improvements**:
+- Wrap the contact info in a styled card with a light background tint
+- Add a subtle decorative element (botanical illustration or leaf pattern) behind the section
+- Style the "Visit us" heading with a decorative underline accent
+- Give each info row (address, phone, email, hours) more breathing room and slightly card-like styling
+
+## 9. Footer Redesign
+**Current issue**: Dark footer feels visually disconnected from the light, airy theme.
+
+**Improvements**:
+- Change to a light footer with a subtle sage/secondary background instead of dark foreground
+- Use the primary color for headings and muted text for body -- matching the site's tone
+- Add a decorative wave/blob SVG at the top of the footer as a transition from the main content
+- Include a small botanical logo/icon accent
+
+## 10. Section Dividers Refinement
+**Current issue**: The blob SVGs are somewhat rough and monotonous.
+
+**Improvements**:
+- Create 2-3 different divider shapes and rotate between them for variety
+- Use more subtle, thinner divider shapes
+- Add a very faint secondary color layer behind for depth (dual-layer SVG)
+
+## 11. Global Polish
+- Add a subtle background texture/pattern (very faint grain or linen-like noise) to the body for warmth
+- Improve the scroll progress bar -- make it thinner (2px) and use a gradient from primary to accent
+- Refine the back-to-top button with a softer shadow and slightly smaller size
 
 ---
 
-## Phase 1: Foundation & Data Layer
+## Technical Details
 
-### siteData.json + Zod Validation
-- Create the complete `siteData.json` with all sections (branding, nav, seo, hero, about, featuredMenu, menu, gallery, testimonials, contact, social, specialOffer, layout)
-- Build a Zod schema that validates every field with friendly error messages
-- Create a **SiteDataContext** that loads and validates JSON at startup
-- If validation fails, render a styled error overlay showing exactly which fields are wrong and how to fix them
-- All components consume typed data from context — zero hardcoded content
+### Files to modify:
+- `src/data/siteData.json` -- set `specialOffer.visible: false`
+- `src/pages/Index.tsx` -- remove `SpecialOfferBanner` import and usage
+- `src/components/HeroSection.tsx` -- gradient overlay, scroll indicator, botanical accent
+- `src/components/Navbar.tsx` -- hover pill effect, refined spacing, scrolled border
+- `src/components/AboutSection.tsx` -- stats card treatment, decorative accents
+- `src/components/FeaturedMenuSection.tsx` -- editorial card redesign, colored tags
+- `src/components/GallerySection.tsx` -- editorial masonry sizing, always-visible captions, lightbox
+- `src/components/TestimonialsSection.tsx` -- multi-card desktop layout, quotation marks, initials
+- `src/components/ContactSection.tsx` -- card wrapping, decorative elements
+- `src/components/Footer.tsx` -- light theme, wave divider top
+- `src/components/SectionDividers.tsx` -- multiple divider variants
+- `src/index.css` -- background texture, refined scroll progress bar
 
-### EDITING_GUIDE.md
-- Document every JSON field with type, required/optional status, example values, and formatting rules (e.g., "HSL string like `145 30% 60%`")
-
----
-
-## Phase 2: Design System & Theming
-
-### CSS Variables & Fonts
-- Map the JSON color palette to HSL CSS variables (primary, accent, muted, card, background, foreground, border, etc.)
-- Load **Fraunces** (display) and **Space Grotesk** (body) via Google Fonts CSS import
-- Expose as `--font-display` / `--font-body` CSS variables
-- Components use only Tailwind semantic tokens — never hardcoded colors
-
----
-
-## Phase 3: Homepage Sections
-
-### Sticky Navbar
-- Glass blur effect that increases on scroll
-- Active section highlighting using IntersectionObserver
-- Animated underline indicator (framer-motion layoutId)
-- Mobile: slide-out drawer with spring animation
-- Scroll progress bar at the very top of the viewport
-
-### Hero Section
-- Ken Burns slideshow with crossfade between multiple background images
-- Staggered word-reveal headline animation
-- CTA buttons array from JSON with magnetic hover effect (subtle pull toward cursor)
-
-### About Section
-- Asymmetric layout with image and text
-- Animated stats counters (value/suffix/label)
-- Scroll-triggered fade-up entrance
-
-### Featured Menu (togglable)
-- Highlighted dishes with cursor-following glow effect on cards
-- Each item shows name, description, price, image, and dietary tags
-- Staggered card entrance animation
-
-### Gallery (togglable)
-- Masonry image grid with captions
-- Lazy-loaded images with shimmer placeholder
-- Organic, offset layout that feels hand-curated
-
-### Testimonials (togglable)
-- Swipeable carousel with framer-motion drag gestures
-- Star ratings display
-- Smooth spring physics on swipe
-
-### Contact Section
-- Address, phone (with WhatsApp link), email, opening hours
-- Embedded Google Maps via configurable URL
-- Clean, readable layout
-
-### Special Offer Banner (togglable)
-- Sticky/dismissible top banner with text and link
-
-### Section Ordering
-- `layout.sectionOrder` array controls the order sections appear
-- Any section with `visible: false` is completely hidden
-
----
-
-## Phase 4: Full Menu Page (`/menu`)
-
-### Dedicated Menu Page
-- Route: `/menu`
-- Category-based layout with all menu items from JSON
-- Filterable by tags (dietary/type filters)
-- Configurable grid columns
-- Cursor-following glow on item cards
-- SEO meta tags via react-helmet-async
-
----
-
-## Phase 5: Premium UX Polish
-
-### Animations & Interactions
-- Scroll-triggered section animations (fade-up, slide-up, scale-in) via IntersectionObserver + framer-motion
-- Magnetic CTA buttons with subtle cursor-pull effect
-- Cursor-following glow effect on cards
-- Cinematic organic blob/wave section dividers (SVG)
-- Lazy image loading with shimmer placeholder animation
-- Back-to-top floating button with smooth scroll
-- Custom styled scrollbar matching the theme
-- Smooth scroll behavior globally
-
-### SEO
-- react-helmet-async on both pages with title, description, keywords, OG image — all from JSON
-
-### Responsiveness
-- Fully responsive down to 320px width
-- Mobile-optimized navigation, layouts, and touch interactions
-
+### No new dependencies needed
+All improvements use existing libraries (framer-motion, lucide-react, Tailwind CSS).
