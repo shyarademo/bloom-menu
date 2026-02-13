@@ -33,8 +33,28 @@ export function GallerySection() {
           {gallery.headline}
         </motion.h2>
 
-        {/* Editorial masonry grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 auto-rows-[200px] sm:auto-rows-[220px]">
+        {/* Mobile: horizontal scroll | Desktop: editorial masonry */}
+        <div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 scrollbar-hide">
+          {gallery.images.map((img, i) => (
+            <motion.div
+              key={img.src}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              className="group relative rounded-2xl overflow-hidden cursor-pointer shrink-0 w-[75vw] aspect-[4/5] snap-center"
+              onClick={() => setSelected(i)}
+            >
+              <LazyImage src={img.src} alt={img.caption || ""} className="w-full h-full object-cover" />
+              {img.caption && (
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/50 to-transparent p-4">
+                  <p className="text-primary-foreground text-sm font-medium">{img.caption}</p>
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="hidden sm:grid sm:grid-cols-3 gap-4 auto-rows-[220px]">
           {gallery.images.map((img, i) => (
             <motion.div
               key={img.src}
@@ -45,7 +65,6 @@ export function GallerySection() {
               onClick={() => setSelected(i)}
             >
               <LazyImage src={img.src} alt={img.caption || ""} className="w-full h-full object-cover" />
-              {/* Always-visible caption */}
               {img.caption && (
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/50 to-transparent p-4">
                   <p className="text-primary-foreground text-sm font-medium">{img.caption}</p>
