@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSiteData } from "@/contexts/SiteDataContext";
-import { Menu, X } from "lucide-react";
+import { Menu, X, UtensilsCrossed } from "lucide-react";
 
 export function Navbar() {
   const { branding, navigation } = useSiteData();
@@ -41,17 +41,20 @@ export function Navbar() {
   return (
     <>
       {/* Scroll progress bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-[3px]">
-        <motion.div
-          className="h-full bg-accent"
-          style={{ width: `${scrollProgress}%` }}
+      <div className="fixed top-0 left-0 right-0 z-[60] h-[2px]">
+        <div
+          className="h-full transition-all duration-150"
+          style={{
+            width: `${scrollProgress}%`,
+            background: `linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))`,
+          }}
         />
       </div>
 
       <header
-        className={`fixed top-[3px] left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-[2px] left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-xl shadow-sm"
+            ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
             : "bg-transparent"
         }`}
       >
@@ -64,7 +67,7 @@ export function Navbar() {
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2">
             {navigation.map((item) => {
               const sectionId = item.href.replace("#", "");
               const isActive = activeSection === sectionId;
@@ -72,13 +75,17 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="relative py-1 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                    isActive
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                  }`}
                 >
                   {item.label}
                   {isActive && (
                     <motion.div
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-primary/10 -z-10"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -87,8 +94,9 @@ export function Navbar() {
             })}
             <a
               href="/menu"
-              className="px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="ml-4 px-5 py-2.5 text-sm font-medium rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
             >
+              <UtensilsCrossed className="w-4 h-4" />
               Full Menu
             </a>
           </div>
@@ -140,8 +148,9 @@ export function Navbar() {
                 ))}
                 <a
                   href="/menu"
-                  className="mt-4 px-6 py-3 text-center font-medium rounded-full bg-primary text-primary-foreground"
+                  className="mt-4 px-6 py-3 text-center font-medium rounded-full bg-primary text-primary-foreground inline-flex items-center justify-center gap-2"
                 >
+                  <UtensilsCrossed className="w-4 h-4" />
                   Full Menu
                 </a>
               </div>

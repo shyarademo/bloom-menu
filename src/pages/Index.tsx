@@ -7,10 +7,9 @@ import { FeaturedMenuSection } from "@/components/FeaturedMenuSection";
 import { GallerySection } from "@/components/GallerySection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
-import { SpecialOfferBanner } from "@/components/SpecialOfferBanner";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
-import { BlobDivider } from "@/components/SectionDividers";
+import { OrganicDivider } from "@/components/SectionDividers";
 
 const sectionComponents: Record<string, React.FC> = {
   hero: HeroSection,
@@ -33,7 +32,6 @@ const Index = () => {
         {seo.ogImage && <meta property="og:image" content={seo.ogImage} />}
       </Helmet>
 
-      <SpecialOfferBanner />
       <Navbar />
 
       <main>
@@ -42,7 +40,7 @@ const Index = () => {
           if (!Component) return null;
           return (
             <div key={sectionKey}>
-              {i > 0 && sectionKey !== "hero" && <BlobDivider flip={i % 2 === 0} />}
+              {i > 0 && sectionKey !== "hero" && <OrganicDivider variant={i % 3} flip={i % 2 === 0} />}
               <Component />
             </div>
           );

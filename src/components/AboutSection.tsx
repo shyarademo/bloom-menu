@@ -67,7 +67,8 @@ export function AboutSection() {
               <LazyImage src={about.image} alt={about.headline} className="aspect-[4/5]" />
             </div>
             {/* Decorative blob */}
-            <div className="absolute -z-10 -top-6 -left-6 w-40 h-40 rounded-full bg-accent/20 blur-2xl" />
+            <div className="absolute -z-10 -top-8 -left-8 w-48 h-48 rounded-full bg-accent/15 blur-3xl" />
+            <div className="absolute -z-10 -bottom-6 -right-6 w-36 h-36 rounded-full bg-primary/10 blur-2xl" />
           </motion.div>
 
           {/* Text */}
@@ -76,6 +77,8 @@ export function AboutSection() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            {/* Decorative leaf accent */}
+            <span className="text-3xl mb-4 block">🌿</span>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground leading-tight mb-6">
               {about.headline}
             </h2>
@@ -84,13 +87,13 @@ export function AboutSection() {
             </p>
 
             {about.stats && (
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-3 gap-4">
                 {about.stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
+                  <div key={stat.label} className="text-center p-4 rounded-2xl bg-card border border-border">
                     <div className="font-display text-3xl md:text-4xl font-bold text-primary">
                       <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
                   </div>
                 ))}
               </div>
